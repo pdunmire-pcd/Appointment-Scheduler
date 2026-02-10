@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="/public/images/favicon.jpg">
+
+</head>
+<body>
+    <main>
+            <form id="appointment-form" action="/submit-appointment" method="post">
+
+            <!--Create appointment info-->
+            <fieldset> 
+                <legend>Create appointment</legend>
+
+                <label for="fname">First Name:
+                    <span class="err" id="errFname">
+                        First name is required
+                    </span>
+                </label>
+                <input id="fname" type="text" name="fname">
+
+                <label for="lname">Last Name:
+                    <span class="err" id="errlname">
+                        Last name is required
+                    </span>
+                </label>
+                <input id="lname" type="text" name="lname">
+
+                <label for="date">Date:
+                    <span class="err" id="errdate">
+                        Date is required
+                    </span>
+                </label>
+                <input id="date" type="date" name="date">
+
+                <label for="time"><Time></Time>:
+                    <span class="err" id="errtime">
+                        <Time></Time> is required
+                    </span>
+                </label>
+                <input id="time" type="time" name="time">
+
+            </fieldset>
+
+
+            <!--Submit Button-->
+            <button type="submit" id="submit-button" >Submit</button>
+            
+        </form>
+    </main>
+    
+</body>
+</html>
