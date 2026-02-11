@@ -48,7 +48,30 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Validate Date
-        
+        if (date.value.trim() === '') {
+            showError(date, 'Date is required');
+            isValid = false;
+        } else {
+            // Optional: Check if date is in the past
+            const selectedDate = new Date(date.value);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0); // Reset time to start of day
+            
+            if (selectedDate < today) {
+                showError(date, 'Please select a future date');
+                isValid = false;
+            } else {
+                clearError(date);
+            }
+        }
+
+        // Validate Time
+        if (time.value.trim() === '') {
+            showError(time, 'Time is required');
+            isValid = false;
+        } else {
+            clearError(time);
+        }
 
         // If all validations passed, submit the form
         if (isValid) {
@@ -78,6 +101,30 @@ document.addEventListener('DOMContentLoaded', function() {
             showError(lname, 'Last name is required');
         } else {
             clearError(lname);
+        }
+    });
+
+    date.addEventListener('blur', function() {
+        if (date.value.trim() === '') {
+            showError(date, 'Date is required');
+        } else {
+            const selectedDate = new Date(date.value);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            
+            if (selectedDate < today) {
+                showError(date, 'Please select a future date');
+            } else {
+                clearError(date);
+            }
+        }
+    });
+
+    time.addEventListener('blur', function() {
+        if (time.value.trim() === '') {
+            showError(time, 'Time is required');
+        } else {
+            clearError(time);
         }
     });
 
