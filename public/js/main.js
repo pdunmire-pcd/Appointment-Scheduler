@@ -74,9 +74,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // If all validations passed, submit the form
+        // If all validations passed, submit the form
         if (isValid) {
-            alert('Form is valid! (In a real app, this would submit to the server)');
-            // form.submit(); // Uncomment this in production
+            // Remove the alert and allow form to submit naturally
+            form.submit(); // This will now POST to /submit-appointment
         } else {
             // Scroll to first error
             const firstError = document.querySelector('.invalid');
